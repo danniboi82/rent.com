@@ -19,7 +19,7 @@ exports.loginRequired = function (req, res, next) {
     } catch (err) {
        return next ({ 
             status : 401, 
-            message : "Please log in first"
+            message : "Please log in first, from catch(err)"
         })
     }
 }

@@ -3,7 +3,6 @@ const db = require('../models');
 exports.createProduct = async function (req, res, next) {
     try {
         let product = await db.Product.create({
-            text: req.body.text,
             user: req.params.id,
             productName: req.body.productName,
             brand: req.body.brand,

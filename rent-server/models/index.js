@@ -7,4 +7,6 @@ mongoose.connect('mongodb://localhost/rent', {
     keepAlive: true
 });
 
+
+module.exports.Product = require('./products');
 module.exports.User = require('./user');

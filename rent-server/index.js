@@ -10,7 +10,10 @@ const {
     loginRequired,
     ensureCorrectUser
 } = require('./middleware/auth');
+const db = require('./models');
+
 const PORT = 5000;
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,6 +22,21 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/users/:id/products', loginRequired, ensureCorrectUser, productRoutes);
 //use /
+
+app.get("/api/products", async function (req, res, next) {
+    try {
+        let products = await db.Product.find().sort({
+            createdAt: "desc"
+        }).populate("user", {
+            username: true,
+            profileImageUrl: true
+        });
+        return res.status(200).json(products);
+    } catch (err) {
+        return next(err);
+    }
+})
+
 
 app.use(function (req, res, next) {
     let err = new Error("not found");
