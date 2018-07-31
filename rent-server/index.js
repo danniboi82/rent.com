@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //use /api/auth route to use authRoutes
 app.use('/api/auth', authRoutes);
-
+app.use('/api/users/:id/products')
 //use /
 
 app.use(function (req, res, next) {
