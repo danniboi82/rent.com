@@ -5,7 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const errorHandler = require('./handlers/error');
 const authRoutes = require('./routes/auth');
-
+const productRoutes = require('./routes/products');
+const {
+    loginRequired,
+    ensureCorrectUser
+} = require('./middleware/auth');
 const PORT = 5000;
 
 app.use(cors());
@@ -13,7 +17,7 @@ app.use(bodyParser.json());
 
 //use /api/auth route to use authRoutes
 app.use('/api/auth', authRoutes);
-app.use('/api/users/:id/products')
+app.use('/api/users/:id/products', loginRequired, ensureCorrectUser, productRoutes);
 //use /
 
 app.use(function (req, res, next) {
