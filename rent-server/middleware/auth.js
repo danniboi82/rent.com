@@ -4,6 +4,7 @@ let jwt = require('jsonwebtoken');
 //make sure user is logged in - Authentication
 exports.loginRequired = function (req, res, next) {
     try {
+        
         const token = req.headers.authorization.split(" ")[1];
         jwt.verify(token, process.env.SECRET_KEY, function(err, decoded){
             if(decoded){
@@ -17,6 +18,7 @@ exports.loginRequired = function (req, res, next) {
             }
         })
     } catch (err) {
+        console.log(req.headers)
        return next ({ 
             status : 401, 
             message : "Please log in first, from catch(err)"

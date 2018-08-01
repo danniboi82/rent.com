@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bcrypt = require('bcrypt');
+const User = require("./user");
 
 const productSchema = new mongoose.Schema({
     productName: {
@@ -8,12 +8,12 @@ const productSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
-    brand : {
+    brand: {
         type: String,
         required: true
     },
     category: {
-        type: String, 
+        type: String,
         required: true
     },
     productImageUrl: {
@@ -23,6 +23,8 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     }
+}, {
+    timestamps: true
 })
 
 
