@@ -15,7 +15,7 @@ const Main = props => {
                 <Route exact path='/signin' render={props => { return (<Authform buttonText='Log-in' heading='Welcome Back!' {...props} />)}} />
             </Switch>
             <Switch>
-                <Route exact path='/signup' render={props => { return (<Authform buttonText='Sign Up!!' heading='Join RENT Today!' {...props} />)}} />
+                <Route exact path='/signup' render={props => { return (<Authform signUp buttonText='Sign Up!!' heading='Join RENT Today!' {...props} />)}} />
             </Switch>
         </div>
     )

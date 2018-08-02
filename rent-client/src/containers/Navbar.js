@@ -16,8 +16,8 @@ class Navbar extends Component {
                         <img src={madman} alt="" width='55px'/>
                     </Link>
                     <div className="navbar-nav nav ml-auto">
-                        <Link to='/signup' className="nav-item">Sign-in</Link>
-                        <Link to='#' className="nav-item">Sign-up</Link>
+                        <Link to='/signup' className="nav-item">Sign-up</Link>
+                        <Link to='/signin' className="nav-item">Sign-in</Link>
                     </div>
                 </div>
             </div>
