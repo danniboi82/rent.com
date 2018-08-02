@@ -3,6 +3,7 @@ import {Provider} from 'react-redux';
 import {configureStore} from '../store';
 import {BrowserRouter} from 'react-router-dom';
 import Navbar from './Navbar';
+import Main from './Main';
 
 const store = configureStore()
 const App = () => (
@@ -10,6 +11,7 @@ const App = () => (
     <BrowserRouter>
       <div>
         <Navbar/>
+        <Main/>
       </div>
     </BrowserRouter>
   </Provider>

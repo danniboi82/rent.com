@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import madman from '../images/csgo.jpg'; 
 
 class Navbar extends Component {
     constructor() {
@@ -12,12 +13,12 @@ class Navbar extends Component {
             <div className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
                     <Link to='/' className="navbar-brand">
-                        <img src="" alt=""/>
+                        <img src={madman} alt="" width='55px'/>
                     </Link>
-                    <ul className="nav">
-                        <Link to='#' className="nav-item">Sign-in</Link>
+                    <div className="navbar-nav nav ml-auto">
+                        <Link to='/signup' className="nav-item">Sign-in</Link>
                         <Link to='#' className="nav-item">Sign-up</Link>
-                    </ul>
+                    </div>
                 </div>
             </div>
         )
